@@ -26,32 +26,44 @@ function stopColorChangeInterval() {
 const imageContainer = document.querySelector('.image-container');
 const audio = document.getElementById('audio');
 const imageElement = document.getElementById('image');
+const dialogueContainer = document.querySelector('.dialogue-container'); // Add this line
 let isImage1 = true;
 let isImageClicked = false;
 
 imageContainer.addEventListener('click', () => {
     // Hide the "Click me" text
     const clickMeText = document.querySelector('.click-me');
-    clickMeText.style.display = 'none'
+    clickMeText.style.display = 'none';
+
     // Start automatic color change
     startColorChangeInterval();
+
     if (!isAudioPlaying) {
         // Play the audio
-        audio.loop = true; // Loop the audio
+        audio.loop = true;
         audio.play().catch(error => {
-            // Handle any playback errors
             console.error('Audio playback error:', error);
         });
         isAudioPlaying = true;
-    } 
+    }
+
     if (isImage1) {
         imageElement.src = 'wake.jpg'; // Change to the second image
         imageElement.alt = 'Image 2'; // Update alt text if needed
-    } 
+    } else {
+        imageElement.src = 'original.jpg'; // Change back to the first image
+        imageElement.alt = 'Image 1'; // Update alt text if needed
+    }
+    
     isImage1 = !isImage1; // Toggle the image flag
+
     if (!isImageClicked) {
         imageContainer.classList.add('image-clicked'); // Add a class to trigger the animation
         isImageClicked = true;
+
+        // Show the dialogue box and position it absolutely
+        dialogueContainer.style.display = 'block';
+        dialogueContainer.style.top = '100px'; // Adjust the top position as needed
+        dialogueContainer.style.left = '300px'; // Adjust the left position as needed
     }
-   ;
 });

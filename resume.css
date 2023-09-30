@@ -156,3 +156,14 @@ ul {
     opacity: 0;
     pointer-events: none; /* Disable pointer events so it can't be clicked again */
 }
+.dialogue-container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.0); /* Adjust the alpha (0.5) to control transparency */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    font-size: 14px; /* Adjust the font size if needed */
+
+}
