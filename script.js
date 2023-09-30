@@ -25,8 +25,14 @@ function stopColorChangeInterval() {
 
 const imageContainer = document.querySelector('.image-container');
 const audio = document.getElementById('audio');
+const imageElement = document.getElementById('image');
+let isImage1 = true;
+let isImageClicked = false;
 
 imageContainer.addEventListener('click', () => {
+    // Hide the "Click me" text
+    const clickMeText = document.querySelector('.click-me');
+    clickMeText.style.display = 'none'
     // Start automatic color change
     startColorChangeInterval();
     if (!isAudioPlaying) {
@@ -37,10 +43,15 @@ imageContainer.addEventListener('click', () => {
             console.error('Audio playback error:', error);
         });
         isAudioPlaying = true;
-
-        
     } 
-    // Hide the "Click me" text
-    const clickMeText = document.querySelector('.click-me');
-    clickMeText.style.display = 'none';
+    if (isImage1) {
+        imageElement.src = 'wake.jpg'; // Change to the second image
+        imageElement.alt = 'Image 2'; // Update alt text if needed
+    } 
+    isImage1 = !isImage1; // Toggle the image flag
+    if (!isImageClicked) {
+        imageContainer.classList.add('image-clicked'); // Add a class to trigger the animation
+        isImageClicked = true;
+    }
+   ;
 });

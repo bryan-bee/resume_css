@@ -54,9 +54,9 @@
     spin 1s infinite linear; /* Apply the spinning animation */
 }
 
-/* Apply reverse spinning animation when mouse hovering stops */
-.image-container:not(:hover) .zoom-image {
-    animation: reverseSpin 1s infinite linear; /* Apply reverse spinning animation */
+/* Add a separate rule for the spinning animation */
+.image-container.image-clicked .zoom-image {
+    animation: spin 1s infinite linear; /* Apply the spinning animation */
     transform: scale(1) rotate(0deg); /* Return the image to normal size and rotation */
 }
 
