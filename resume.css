@@ -7,20 +7,19 @@
     position: relative;
 }
 
-.header_left {
-    position: relative; /* Position absolutely within the parent container */
-    left: 0; /* Align to the left edge of the parent container */
-    top: 0; /* Align to the top edge of the parent container (if desired) */
-    width: auto; /* Let the content determine the width */
-    /* Additional styling if needed */
+.header {
+    display: flex;
+    justify-content: space-between;
 }
 
+.header_left {
+    flex: 1;
+}
+
+
 .header_right {
-    position: absolute; /* Position absolutely within the parent container */
-    right: 0; /* Align to the left edge of the parent container */
-    top: 15px; /* Align to the top edge of the parent container (if desired) */
-    width: auto; /* Let the content determine the width */
-    /* Additional styling if needed */
+    flex: 1;
+    text-align: right;
 }
 
 /* Add necessary styles for the container and image */
