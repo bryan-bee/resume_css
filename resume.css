@@ -1,0 +1,124 @@
+.main_container{
+    width: 100%; /* Adjust the width as needed */
+    max-width: 100vh; /* Maximum width for the "paper" */
+    margin: 0 auto; /* Center horizontally */
+    padding: 10px; /* Add some padding to mimic the margins on a piece of paper */
+    background-color: white; /* Set a background color to mimic a white piece of paper */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to mimic depth */
+    position: relative;
+}
+
+.header_left {
+    position: relative; /* Position absolutely within the parent container */
+    left: 0; /* Align to the left edge of the parent container */
+    top: 0; /* Align to the top edge of the parent container (if desired) */
+    width: auto; /* Let the content determine the width */
+    /* Additional styling if needed */
+}
+
+.header_right {
+    position: absolute; /* Position absolutely within the parent container */
+    right: 0; /* Align to the left edge of the parent container */
+    top: 15px; /* Align to the top edge of the parent container (if desired) */
+    width: auto; /* Let the content determine the width */
+    /* Additional styling if needed */
+}
+
+/* Add necessary styles for the container and image */
+.image-container {
+    width: 200px; /* Adjust container width as needed */
+    height: 200px; /* Adjust container height as needed */
+    overflow: hidden;
+    border-radius: 50%; /* Make the container circular */
+    position: relative;
+    transition: transform 1.5s; /* Add smooth transition for scaling */
+    margin: 0;
+}
+
+/* Add hover effect */
+.image-container:hover {
+    transform: scale(3.5); /* Expand the container on hover */
+}
+
+.zoom-image {
+    width: 100%; /* Initially, image is 100% of container size */
+    height: 100%; /* Initially, image is 100% of container size */
+    transition: transform 0.3s, width 0.3s, height 0.3s;
+}
+
+/* Add hover effect */
+.image-container:hover .zoom-image {
+    transform: scale(1.3) rotate(15deg); /* Scale and rotate the image on hover */
+    width: 120%; /* Expand the image width */
+    height: 120%; /* Expand the image height */
+    animation: spin 1s infinite linear; /* Apply the spinning animation */
+}
+
+/* Define the spinning animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Define the color change animation */
+@keyframes colorChange {
+    0% {
+        background-color: red;
+    }
+    20% {
+        background-color: green;
+    }
+    40% {
+        background-color: yellow;
+    }
+    60% {
+        background-color: purple;
+    }
+    80% {
+        background-color: pink;
+    }
+    100% {
+        background-color: red;
+    }
+}
+
+/* Apply color change animation when the class is added */
+.resume.color-change {
+    animation: colorChange 1s linear forwards;
+}
+
+/* Section styles */
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 5px;
+    border-bottom: 1px solid #000; /* Add a solid underline beneath the section headers */
+
+}
+
+.date {
+    float: right; /* Align dates to the right */
+    font-weight: bold; /* Make dates bold */
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column; /* Display skills in a column layout */
+}
+
+.skills p {
+    margin: 0; /* Remove default paragraph margins */
+    padding-left: 20px; /* Add left padding for better alignment */
+    text-indent: -20px; /* Counteract the left padding for the first line */
+}
