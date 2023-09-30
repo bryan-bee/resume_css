@@ -1,10 +1,9 @@
 .main_container{
     width: 100%; /* Adjust the width as needed */
-    max-width: 100vh; /* Maximum width for the "paper" */
+    max-width: 175vh; /* Maximum width for the "paper" */
     margin: 0 auto; /* Center horizontally */
-    padding: 10px; /* Add some padding to mimic the margins on a piece of paper */
+    padding: 5px; /* Add some padding to mimic the margins on a piece of paper */
     background-color: white; /* Set a background color to mimic a white piece of paper */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to mimic depth */
     position: relative;
 }
 
@@ -121,4 +120,24 @@ ul {
     margin: 0; /* Remove default paragraph margins */
     padding-left: 20px; /* Add left padding for better alignment */
     text-indent: -20px; /* Counteract the left padding for the first line */
+}
+
+/* Add styles for the "Click me" text */
+.click-me {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Hide the "Click me" text when the image is clicked */
+.image-container.clicked .click-me {
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events so it can't be clicked again */
 }

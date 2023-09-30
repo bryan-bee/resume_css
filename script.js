@@ -52,7 +52,9 @@ imageContainer.addEventListener('click', () => {
         resume.style.transition = 'background-color 1s ease-in-out';
         resume.style.backgroundColor = 'white';
     }
+
+    // Hide the "Click me" text
+    const clickMeText = document.querySelector('.click-me');
+    clickMeText.style.display = 'none';
 });
 
-// Start automatic color change when the page loads
-startColorChangeInterval();
