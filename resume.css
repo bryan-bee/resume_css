@@ -50,7 +50,14 @@
     transform: scale(1.3) rotate(15deg); /* Scale and rotate the image on hover */
     width: 120%; /* Expand the image width */
     height: 120%; /* Expand the image height */
-    animation: spin 1s infinite linear; /* Apply the spinning animation */
+    animation: 
+    spin 1s infinite linear; /* Apply the spinning animation */
+}
+
+/* Apply reverse spinning animation when mouse hovering stops */
+.image-container:not(:hover) .zoom-image {
+    animation: reverseSpin 1s infinite linear; /* Apply reverse spinning animation */
+    transform: scale(1) rotate(0deg); /* Return the image to normal size and rotation */
 }
 
 /* Define the spinning animation */
@@ -82,6 +89,15 @@
     }
     100% {
         background-color: red;
+    }
+}
+
+@keyframes reverseSpin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
     }
 }
 

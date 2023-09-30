@@ -16,7 +16,7 @@ function changeBackgroundColorSmooth() {
 function startColorChangeInterval() {
     colorChangeInterval = setInterval(() => {
         changeBackgroundColorSmooth();
-    }, 1000); // Change colors every 2 seconds (2000 milliseconds)
+    }, 500); // Change colors every 2 seconds (2000 milliseconds)
 }
 
 function stopColorChangeInterval() {
@@ -27,6 +27,8 @@ const imageContainer = document.querySelector('.image-container');
 const audio = document.getElementById('audio');
 
 imageContainer.addEventListener('click', () => {
+    // Start automatic color change
+    startColorChangeInterval();
     if (!isAudioPlaying) {
         // Play the audio
         audio.loop = true; // Loop the audio
@@ -36,25 +38,9 @@ imageContainer.addEventListener('click', () => {
         });
         isAudioPlaying = true;
 
-        // Start automatic color change
-        startColorChangeInterval();
-    } else {
-        // Stop the audio
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
-        isAudioPlaying = false;
-
-        // Stop automatic color change
-        stopColorChangeInterval();
-
-        // Reset background color to white
-        const resume = document.querySelector('.main_container');
-        resume.style.transition = 'background-color 1s ease-in-out';
-        resume.style.backgroundColor = 'white';
-    }
-
+        
+    } 
     // Hide the "Click me" text
     const clickMeText = document.querySelector('.click-me');
     clickMeText.style.display = 'none';
 });
-
